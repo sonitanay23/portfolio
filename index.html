@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanay Soni · Computer Engineering student, builder</title>
+<meta name="description" content="Tanay Soni: B.Tech Computer Engineering student at Sardar Patel Institute of Technology, Mumbai. Builder of Canon, 3rd place at CodeAxis.">
+<meta property="og:title" content="Tanay Soni">
+<meta property="og:description" content="Computer Engineering student at SPIT Mumbai. Built Canon, an AI brand-governance platform that placed 3rd at CodeAxis.">
+<meta property="og:image" content="https://tanaysoni.xyz/assets/canon-review.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b5bdb'/%3E%3Cstop offset='.55' stop-color='%236d4aff'/%3E%3Cstop offset='1' stop-color='%23ff6b4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='17' fill='white'%3Ets%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #0b0f1c; --bg2: #11172a; --card: #141b30; --line: rgba(255,255,255,.09); --line2: rgba(255,255,255,.16);
+  --ink: #eef1fa; --ink2: #b9c1d8; --muted: #8590ab;
+  --blue: #5b7cff; --violet: #8b6dff; --coral: #ff7a5c; --green: #3fd08a; --gold: #f5c45e;
+  --grad: linear-gradient(115deg, #5b7cff 0%, #8b6dff 50%, #ff7a5c 100%);
+  --ui: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--ui); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+::selection { background: rgba(139,109,255,.4); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.serif { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -.01em; }
+
+/* background glow + grid */
+.bgfx { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.bgfx::before { content: ""; position: absolute; inset: -20%;
+  background: radial-gradient(520px 380px at 80% 10%, rgba(139,109,255,.28), transparent 60%),
+              radial-gradient(480px 360px at 10% 30%, rgba(91,124,255,.22), transparent 60%),
+              radial-gradient(420px 320px at 60% 95%, rgba(255,122,92,.16), transparent 60%);
+  animation: drift 18s ease-in-out infinite alternate; }
+.bgfx::after { content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 70%); }
+@keyframes drift { to { transform: translate3d(-4%, 3%, 0) scale(1.08); } }
+
+/* nav */
+nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  background: rgba(11,15,28,.7); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 1rem; height: 64px; }
+.mark { display: flex; align-items: center; gap: .55rem; font-weight: 700; letter-spacing: -.02em; }
+.mark i { width: 30px; height: 30px; border-radius: 9px; background: var(--grad); display: grid; place-items: center; font: italic 400 17px/1 var(--serif); color: #fff; box-shadow: 0 8px 20px -8px rgba(139,109,255,.9); }
+.links { margin-left: auto; display: flex; gap: .2rem; }
+.links a { color: var(--ink2); font-weight: 600; font-size: .92rem; padding: .45rem .8rem; border-radius: 99px; transition: color .15s, background .15s; }
+.links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+/* hero */
+.hero { padding: 96px 0 72px; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 56px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: .55rem; padding: .32rem .8rem .32rem .38rem; border-radius: 99px; background: rgba(255,255,255,.06); border: 1px solid var(--line2); font-size: .85rem; color: var(--ink2); }
+.pill b { background: var(--grad); color: #fff; padding: .1rem .55rem; border-radius: 99px; font-size: .75rem; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 4.8rem); line-height: 1; letter-spacing: -.045em; margin: 1.2rem 0 1.1rem; font-weight: 700; }
+h1 .serif { font-size: 1.08em; }
+.lede { font-size: 1.15rem; color: var(--ink2); max-width: 54ch; margin: 0; }
+.cta { display: flex; gap: .7rem; margin-top: 2rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.25rem; border-radius: 12px; font-weight: 650; font-size: .95rem; border: 1px solid var(--line2); background: rgba(255,255,255,.04); transition: transform .15s, background .15s, border-color .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+.btn.primary { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 12px 30px -12px rgba(139,109,255,.95); }
+.btn.primary:hover { box-shadow: 0 16px 36px -12px rgba(139,109,255,1); }
+.btn svg { width: 18px; height: 18px; }
+
+/* hero card: trophy */
+.trophy { position: relative; border-radius: 24px; padding: 28px; background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border: 1px solid var(--line2); box-shadow: 0 40px 80px -40px rgba(0,0,0,.8); overflow: hidden; animation: float 7s ease-in-out infinite; }
+.trophy::before { content: ""; position: absolute; width: 260px; height: 260px; right: -80px; top: -90px; border-radius: 50%; background: radial-gradient(circle, rgba(245,196,94,.35), transparent 65%); }
+@keyframes float { 50% { transform: translateY(-8px); } }
+.medal { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; font: 700 2rem/1 var(--ui); color: #2a1a00; position: relative;
+  background: radial-gradient(circle at 30% 30%, #ffe8a8, #f5c45e 45%, #c98a1b); box-shadow: 0 14px 30px -10px rgba(245,196,94,.8), inset 0 0 0 4px rgba(255,255,255,.35); }
+.medal small { font-size: .8rem; vertical-align: super; }
+.trophy h3 { margin: 1.1rem 0 .3rem; font-size: 1.35rem; letter-spacing: -.02em; }
+.trophy p { margin: 0; color: var(--ink2); font-size: .95rem; }
+.rewards { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1.1rem; }
+.tag { font-size: .78rem; font-weight: 650; padding: .3rem .65rem; border-radius: 99px; border: 1px solid var(--line2); color: var(--ink2); background: rgba(255,255,255,.04); }
+.tag.g { color: #0d2a1c; background: var(--green); border-color: transparent; }
+.tag.y { color: #2a1a00; background: var(--gold); border-color: transparent; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.3rem; }
+.stats div { background: rgba(0,0,0,.25); border: 1px solid var(--line); border-radius: 14px; padding: .8rem; }
+.stats b { display: block; font-size: 1.5rem; letter-spacing: -.03em; }
+.stats span { font-size: .75rem; color: var(--muted); }
+
+/* sections */
+section { padding: 84px 0 0; scroll-margin-top: 70px; }
+.eyebrow { display: inline-flex; align-items: center; gap: .5rem; font: 500 .78rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--violet); }
+.eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--grad); border-radius: 2px; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: -.035em; line-height: 1.1; margin: .7rem 0 .6rem; }
+.sub { color: var(--ink2); max-width: 62ch; margin: 0 0 2rem; }
+
+/* featured project */
+.feature { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: 0; border-radius: 26px; overflow: hidden; border: 1px solid var(--line2); background: var(--card); }
+.feature .txt { padding: 36px; display: flex; flex-direction: column; }
+.feature h3 { font-size: 2rem; margin: .5rem 0 .4rem; letter-spacing: -.03em; }
+.feature p { color: var(--ink2); margin: 0 0 1rem; }
+.feature ul { margin: 0 0 1.2rem; padding: 0; list-style: none; }
+.feature li { position: relative; padding-left: 1.4rem; margin: .45rem 0; color: var(--ink2); font-size: .95rem; }
+.feature li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--grad); transform: rotate(45deg); }
+.feature li b { color: var(--ink); font-weight: 600; }
+.stack { display: flex; flex-wrap: wrap; gap: .4rem; margin: auto 0 1.2rem; }
+.stack span { font: 500 .74rem/1 var(--mono); padding: .4rem .55rem; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--ink2); }
+.shots { position: relative; background: linear-gradient(140deg, #1d2547, #2a1d4d 55%, #3d2235); min-height: 420px; overflow: hidden; }
+.shots img { position: absolute; border-radius: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.15); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.shots .s1 { width: 78%; left: 8%; top: 9%; transform: rotate(-3deg); z-index: 1; }
+.shots .s2 { width: 62%; right: -6%; bottom: -4%; transform: rotate(4deg); z-index: 2; }
+.feature:hover .s1 { transform: rotate(-1deg) translateY(-6px); }
+.feature:hover .s2 { transform: rotate(2deg) translate(-10px, -10px); }
+.place { position: absolute; z-index: 3; left: 18px; bottom: 18px; background: rgba(11,15,28,.85); border: 1px solid rgba(245,196,94,.6); color: var(--gold); padding: .45rem .8rem; border-radius: 10px; font-weight: 700; font-size: .85rem; backdrop-filter: blur(6px); }
+
+/* project grid */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-4px); border-color: rgba(139,109,255,.5); box-shadow: 0 24px 50px -28px rgba(139,109,255,.7); }
+.card .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 1rem; background: rgba(255,255,255,.06); border: 1px solid var(--line2); }
+.card h4 { margin: 0 0 .2rem; font-size: 1.15rem; letter-spacing: -.01em; }
+.card .meta { font: 500 .74rem/1.4 var(--mono); color: var(--violet); margin-bottom: .7rem; }
+.card p { color: var(--ink2); font-size: .93rem; margin: 0; }
+.card .k { display: inline-block; margin-top: 1rem; font-size: .75rem; font-weight: 650; color: var(--muted); border: 1px dashed var(--line2); padding: .25rem .55rem; border-radius: 99px; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.sk { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+.sk h4 { margin: 0 0 .9rem; font: 500 .78rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: .45rem; }
+.chips span { padding: .38rem .7rem; border-radius: 99px; font-size: .86rem; font-weight: 600; background: rgba(255,255,255,.05); border: 1px solid var(--line2); }
+.chips span.hot { border-color: transparent; background: linear-gradient(115deg, rgba(91,124,255,.35), rgba(139,109,255,.35)); }
+.learning { margin-top: 16px; border-radius: 20px; padding: 22px 24px; border: 1px solid rgba(63,208,138,.35); background: linear-gradient(115deg, rgba(63,208,138,.1), rgba(91,124,255,.06)); display: flex; gap: 18px; align-items: center; }
+.learning .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--green); flex: none; box-shadow: 0 0 0 0 rgba(63,208,138,.6); animation: ping 2s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 12px rgba(63,208,138,0); } 100% { box-shadow: 0 0 0 0 rgba(63,208,138,0); } }
+.learning p { margin: 0; color: var(--ink2); }
+.learning b { color: var(--ink); }
+
+/* timeline */
+.tl { position: relative; padding-left: 28px; }
+.tl::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--blue), var(--violet), var(--coral)); border-radius: 2px; }
+.tl .it { position: relative; padding: 0 0 28px; }
+.tl .it::before { content: ""; position: absolute; left: -27px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--violet); }
+.tl .when { font: 500 .78rem/1 var(--mono); color: var(--muted); }
+.tl h4 { margin: .4rem 0 .2rem; font-size: 1.1rem; }
+.tl p { margin: 0; color: var(--ink2); font-size: .95rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+/* contact */
+.contact { margin: 96px 0 0; border-radius: 28px; padding: 56px 40px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #1e2a5e, #34205e 55%, #5a2a3a); border: 1px solid var(--line2); }
+.contact h2 { margin-top: 0; }
+.contact p { color: var(--ink2); margin: 0 auto 1.6rem; max-width: 52ch; }
+.contact .cta { justify-content: center; }
+footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-align: center; }
+
+/* reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--d, 0) * 90ms); }
+  .rv.in { opacity: 1; transform: none; }
+  .type::after { content: "▍"; margin-left: 2px; color: var(--violet); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+@media (max-width: 900px) {
+  .hero, .feature, .two { grid-template-columns: 1fr; }
+  .hero { padding: 56px 0 40px; gap: 36px; }
+  .grid { grid-template-columns: 1fr; }
+  .skills { grid-template-columns: 1fr 1fr; }
+  .shots { min-height: 300px; }
+  .links a:not(.keep) { display: none; }
+}
+@media (max-width: 520px) {
+  .wrap { padding: 0 16px; }
+  .skills { grid-template-columns: 1fr; }
+  .feature .txt { padding: 24px; }
+  .contact { padding: 40px 20px; }
+  .stats b { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Tanay Soni, home"><i>ts</i>Tanay Soni</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#journey">Journey</a>
+      <a class="keep" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top" class="wrap">
+  <header class="hero">
+    <div>
+      <span class="pill rv"><b>New</b> 3rd place at CodeAxis · incubation &amp; PPO offer</span>
+      <h1 class="rv" style="--d:1">I build software that<br><span class="serif grad">thinks before it ships.</span></h1>
+      <p class="lede rv" style="--d:2">I'm Tanay, a Computer Engineering student at Sardar Patel Institute of Technology, Mumbai. I like turning messy real-world problems into working products: AI checks for brand content, marketplaces for farmers, and machine-learning ideas that started as a hunch.</p>
+      <div class="cta rv" style="--d:3">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn" href="https://github.com/sonitanay23" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+        <a class="btn" href="mailto:sonitanay23@gmail.com">Email me</a>
+      </div>
+    </div>
+
+    <aside class="trophy rv" style="--d:2" aria-label="Hackathon result">
+      <div class="medal"><span>3<small>rd</small></span></div>
+      <h3>CodeAxis Hackathon · Unstop</h3>
+      <p>Team LazyCoderz built <b>Canon</b> across three elimination rounds, from plan to working prototype to finished product, for Inkloom AI's brand-governance challenge.</p>
+      <div class="rewards"><span class="tag y">3rd place</span><span class="tag g">Incubation offer</span><span class="tag g">PPO offer</span></div>
+      <div class="stats">
+        <div><b data-count="3">3</b><span>rounds cleared</span></div>
+        <div><b data-count="52">52</b><span>automated tests</span></div>
+        <div><b data-count="100" data-suffix="%">100%</b><span>best detection run</span></div>
+      </div>
+    </aside>
+  </header>
+
+  <section id="work">
+    <span class="eyebrow">Featured work</span>
+    <h2>Projects</h2>
+    <p class="sub">Things I've designed, built and shipped, with honest labels on what's a working product and what's still an idea.</p>
+
+    <article class="feature rv">
+      <div class="txt">
+        <span class="eyebrow" style="color:var(--gold)">Team leader · Live product</span>
+        <h3>Canon</h3>
+        <p>An AI brand-governance platform that checks every draft, PDF and image against a brand's approved rules and facts before it's published, and proves what was approved.</p>
+        <ul>
+          <li><b>Rule engine plus validated AI review:</b> exact checks for prices, claims and disclaimers, and Gemini for tone, with every AI finding checked before it's shown</li>
+          <li><b>Computer vision on images:</b> reads text in artwork, measures WCAG contrast and detects retired logos with multi-scale edge matching in NumPy</li>
+          <li><b>Signed approvals:</b> HMAC-signed seals and a public page that shows whether content was approved, edited after approval, or never approved</li>
+          <li><b>Risk-based routing</b> to fast, standard and legal review lanes, plus a governance dashboard</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Flask</span><span>SQLite</span><span>Gemini API</span><span>NumPy</span><span>Pillow</span><span>Render</span></div>
+        <div class="cta" style="margin-top:0">
+          <a class="btn primary" href="https://canon-yzsz.onrender.com" target="_blank" rel="noopener">Open live app ↗</a>
+          <a class="btn" href="https://github.com/sonitanay23/CANON" target="_blank" rel="noopener">Source code</a>
+        </div>
+      </div>
+      <div class="shots" aria-hidden="true">
+        <img class="s1" src="assets/canon-review.jpg" alt="" loading="lazy">
+        <img class="s2" src="assets/canon-verify.jpg" alt="" loading="lazy">
+        <span class="place">🏆 3rd place · CodeAxis</span>
+      </div>
+    </article>
+
+    <div class="grid">
+      <div class="card rv" style="--d:0">
+        <div class="ico">🌾</div>
+        <h4>FarmLink AI</h4>
+        <div class="meta">Smart India Hackathon 2026 · Prototype</div>
+        <p>An AI-powered agricultural marketplace connecting farmers with verified buyers, with price prediction, buyer matching, logistics coordination and payment tracking. I designed the UI/UX flows and presented it at SIH 2026.</p>
+        <div class="stack" style="margin:1rem 0 0"><span>React</span><span>FastAPI</span><span>PostgreSQL</span><span>Figma</span></div>
+      </div>
+      <div class="card rv" style="--d:1">
+        <div class="ico">♻️</div>
+        <h4>AI Waste Sorting</h4>
+        <div class="meta">Concept · Computer vision + ML</div>
+        <p>A system that uses computer vision and machine learning to recognise waste on a line and route it to the right bin, so segregation happens automatically instead of by hand.</p>
+        <span class="k">Idea stage</span>
+      </div>
+      <div class="card rv" style="--d:2">
+        <div class="ico">💡</div>
+        <h4>Auto Light Switch</h4>
+        <div class="meta">Hardware · Electronics</div>
+        <p>A circuit design that senses ambient light and switches lights on at dusk and off at dawn, with no manual switching and no wasted power during the day.</p>
+        <span class="k">Circuit design</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <span class="eyebrow">Toolbox</span>
+    <h2>Skills</h2>
+    <p class="sub">What I use to build things, grouped by what it's for.</p>
+    <div class="skills">
+      <div class="sk rv" style="--d:0"><h4>Languages</h4><div class="chips"><span class="hot">Python</span><span>C</span><span>Java</span><span>SQL</span></div></div>
+      <div class="sk rv" style="--d:1"><h4>AI &amp; data</h4><div class="chips"><span class="hot">Machine learning basics</span><span>LLM APIs (Gemini)</span><span>Computer vision</span><span>NumPy</span></div></div>
+      <div class="sk rv" style="--d:2"><h4>Web &amp; backend</h4><div class="chips"><span>Flask</span><span>FastAPI</span><span>React</span><span>REST APIs</span></div></div>
+      <div class="sk rv" style="--d:3"><h4>Data &amp; tools</h4><div class="chips"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>Git &amp; GitHub</span><span>Figma</span></div></div>
+    </div>
+    <div class="learning rv">
+      <span class="dot" aria-hidden="true"></span>
+      <p><b>Currently learning: machine learning.</b> I've covered the fundamentals and I'm applying them to projects like the waste-sorting system. Canon's image checks were my first taste of computer vision in production.</p>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="two">
+      <div>
+        <span class="eyebrow">Journey</span>
+        <h2>Education</h2>
+        <div class="tl" style="margin-top:1.6rem">
+          <div class="it rv"><span class="when">2025 – present</span><h4>B.Tech, Computer Engineering</h4><p>Sardar Patel Institute of Technology (SPIT), Mumbai</p></div>
+          <div class="it rv" style="--d:1"><span class="when">till 2025</span><h4>Higher Secondary</h4><p>Mindsetters, integrated with Prakash College</p></div>
+          <div class="it rv" style="--d:2"><span class="when">till 2023</span><h4>Secondary School</h4><p>Matushri Kashiben Vrajlal Valia Vidyalaya (MKVVIV)</p></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Beyond code</span>
+        <h2>Wins &amp; milestones</h2>
+        <div class="tl" style="margin-top:1.6rem">
+          <div class="it rv"><span class="when">2026</span><h4>3rd place, CodeAxis Hackathon</h4><p>Led Team LazyCoderz to 3rd with Canon, earning an incubation and pre-placement offer.</p></div>
+          <div class="it rv" style="--d:1"><span class="when">2026</span><h4>Smart India Hackathon</h4><p>Built and presented FarmLink AI.</p></div>
+          <div class="it rv" style="--d:2"><span class="when">Ongoing</span><h4>Learning machine learning</h4><p>Working through ML fundamentals in Python and applying them to computer-vision ideas like the waste-sorting system.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="contact rv">
+      <span class="eyebrow" style="justify-content:center">Let's talk</span>
+      <h2>Have a problem worth <span class="serif">building</span> for?</h2>
+      <p>I'm open to internships, hackathon teams and interesting projects, especially in AI and backend engineering.</p>
+      <p style="font-size:.88rem;margin-top:-.6rem">Off the keyboard, I follow markets: Indian stocks, crypto and mutual funds.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:sonitanay23@gmail.com">sonitanay23@gmail.com</a>
+        <a class="btn" href="https://github.com/sonitanay23" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr">2026</span> Tanay Soni · Mumbai · tanaysoni.xyz</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  } else { els.forEach(function (el) { el.classList.add('in'); }); }
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    if (reduce) return;
+    var end = +el.dataset.count, sfx = el.dataset.suffix || '', t0 = null;
+    function tick(t) { t0 = t0 || t; var p = Math.min(1, (t - t0) / 1100); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + sfx; if (p < 1) requestAnimationFrame(tick); }
+    el.textContent = '0' + sfx; setTimeout(function () { requestAnimationFrame(tick); }, 500);
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
