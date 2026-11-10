@@ -111,6 +111,17 @@ h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: -.035em; line-height
 .feature:hover .s2 { transform: rotate(2deg) translate(-10px, -10px); }
 .place { position: absolute; z-index: 3; left: 18px; bottom: 18px; background: rgba(11,15,28,.85); border: 1px solid rgba(245,196,94,.6); color: var(--gold); padding: .45rem .8rem; border-radius: 10px; font-weight: 700; font-size: .85rem; backdrop-filter: blur(6px); }
 
+.feature.alt { margin-top: 16px; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); }
+.pipe { background: linear-gradient(150deg, #0f2a2c, #13203d 60%, #1c1b3a); padding: 28px; display: flex; flex-direction: column; gap: 8px; justify-content: center; position: relative; }
+.pipe .st { display: flex; align-items: center; gap: .7rem; padding: .55rem .8rem; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: .86rem; color: var(--ink2); }
+.pipe .st b { font: 500 .72rem/1 var(--mono); color: var(--muted); width: 1.4rem; }
+.pipe .st.red { border-color: rgba(255,122,92,.55); background: rgba(255,122,92,.1); color: #ffd3c7; }
+.pipe .st.ok { border-color: rgba(63,208,138,.55); background: rgba(63,208,138,.1); color: #c8f5df; }
+@media (prefers-reduced-motion: no-preference) { .pipe .st { animation: stin .6s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 110ms + 300ms); } }
+@keyframes stin { from { opacity: 0; transform: translateX(14px); } }
+.place.fin { border-color: rgba(63,208,138,.6); color: var(--green); }
+@media (max-width: 900px) { .feature.alt { grid-template-columns: 1fr; } .feature.alt .pipe { order: 2; } }
+
 /* project grid */
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 16px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s; }
@@ -195,9 +206,9 @@ footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-alig
 <main id="top" class="wrap">
   <header class="hero">
     <div>
-      <span class="pill rv"><b>New</b> 3rd place at CodeAxis · incubation &amp; PPO offer</span>
+      <span class="pill rv"><b>New</b> 3rd at CodeAxis · finalist at BITS Pilani's Next Signal</span>
       <h1 class="rv" style="--d:1">I build software that<br><span class="serif grad">thinks before it ships.</span></h1>
-      <p class="lede rv" style="--d:2">I'm Tanay, a Computer Engineering student at Sardar Patel Institute of Technology, Mumbai. I like turning messy real-world problems into working products: AI checks for brand content, marketplaces for farmers, and machine-learning ideas that started as a hunch.</p>
+      <p class="lede rv" style="--d:2">I'm Tanay, a Computer Engineering student at Sardar Patel Institute of Technology, Mumbai. I like turning messy real-world problems into working products: AI checks for brand content, a research agent that argues with itself, marketplaces for farmers, and machine-learning ideas that started as a hunch.</p>
       <div class="cta rv" style="--d:3">
         <a class="btn primary" href="#work">See my work</a>
         <a class="btn" href="https://github.com/sonitanay23" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
@@ -247,6 +258,35 @@ footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-alig
       </div>
     </article>
 
+    <article class="feature alt rv">
+      <div class="txt">
+        <span class="eyebrow" style="color:var(--green)">Solo build · Finalist</span>
+        <h3>Falsify</h3>
+        <p>An autonomous financial research agent that tries to <b style="color:var(--ink)">disprove its own discoveries</b> before reporting them. Give it any listed Indian bank, NBFC, housing-finance company or insurer, and it researches public filings by itself to find signals the market may be missing.</p>
+        <ul>
+          <li><b>Agentic research pipeline:</b> plans research angles, searches the web, follows investor-relations pages to the actual results PDFs, and pulls in peer and market data</li>
+          <li><b>No unverified quotes:</b> every quote is checked word for word against the downloaded source, and every number is calculated in code from cited figures</li>
+          <li><b>Two-model red team:</b> Gemini proposes a finding, then a different model (Groq) attacks it with sector-wide, accounting and one-off explanations. Only survivors are reported</li>
+          <li><b>Rule-based evidence grading</b> and a falsification condition for every finding, plus automatic failover between AI providers</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Gemini API</span><span>Groq</span><span>Web scraping</span><span>pypdf</span><span>yfinance</span></div>
+        <div class="cta" style="margin-top:0">
+          <a class="btn primary" href="https://github.com/sonitanay23/falsify" target="_blank" rel="noopener">Source code ↗</a>
+        </div>
+      </div>
+      <div class="pipe" aria-label="Falsify pipeline">
+        <div class="st" style="--i:0"><b>01</b>Profile the company and 3 listed peers</div>
+        <div class="st" style="--i:1"><b>02</b>Plan research angles</div>
+        <div class="st" style="--i:2"><b>03</b>Gather filings, PDFs and market data</div>
+        <div class="st" style="--i:3"><b>04</b>Extract claims, verify every quote</div>
+        <div class="st" style="--i:4"><b>05</b>Build timelines, detect trend breaks</div>
+        <div class="st" style="--i:5"><b>06</b>Propose divergences</div>
+        <div class="st red" style="--i:6"><b>07</b>Red team: a second model tries to break it</div>
+        <div class="st ok" style="--i:7"><b>08</b>Report only what survives</div>
+        <span class="place fin" style="position:static;margin-top:10px;align-self:flex-start">★ Finalist · Finding the Next Signal</span>
+      </div>
+    </article>
+
     <div class="grid">
       <div class="card rv" style="--d:0">
         <div class="ico">🌾</div>
@@ -278,9 +318,9 @@ footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-alig
     <p class="sub">What I use to build things, grouped by what it's for.</p>
     <div class="skills">
       <div class="sk rv" style="--d:0"><h4>Languages</h4><div class="chips"><span class="hot">Python</span><span>C</span><span>Java</span><span>SQL</span></div></div>
-      <div class="sk rv" style="--d:1"><h4>AI &amp; data</h4><div class="chips"><span class="hot">Machine learning basics</span><span>LLM APIs (Gemini)</span><span>Computer vision</span><span>NumPy</span></div></div>
-      <div class="sk rv" style="--d:2"><h4>Web &amp; backend</h4><div class="chips"><span>Flask</span><span>FastAPI</span><span>React</span><span>REST APIs</span></div></div>
-      <div class="sk rv" style="--d:3"><h4>Data &amp; tools</h4><div class="chips"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>Git &amp; GitHub</span><span>Figma</span></div></div>
+      <div class="sk rv" style="--d:1"><h4>AI &amp; data</h4><div class="chips"><span class="hot">Machine learning basics</span><span class="hot">AI agents</span><span>LLM APIs (Gemini, Groq)</span><span>Computer vision</span><span>NumPy</span></div></div>
+      <div class="sk rv" style="--d:2"><h4>Web &amp; backend</h4><div class="chips"><span>Flask</span><span>FastAPI</span><span>React</span><span>REST APIs</span><span>Web scraping</span></div></div>
+      <div class="sk rv" style="--d:3"><h4>Data &amp; tools</h4><div class="chips"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>Git &amp; GitHub</span><span>Figma</span><span>yfinance</span></div></div>
     </div>
     <div class="learning rv">
       <span class="dot" aria-hidden="true"></span>
@@ -304,8 +344,9 @@ footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-alig
         <h2>Wins &amp; milestones</h2>
         <div class="tl" style="margin-top:1.6rem">
           <div class="it rv"><span class="when">2026</span><h4>3rd place, CodeAxis Hackathon</h4><p>Led Team LazyCoderz to 3rd with Canon, earning an incubation and pre-placement offer.</p></div>
-          <div class="it rv" style="--d:1"><span class="when">2026</span><h4>Smart India Hackathon</h4><p>Built and presented FarmLink AI.</p></div>
-          <div class="it rv" style="--d:2"><span class="when">Ongoing</span><h4>Learning machine learning</h4><p>Working through ML fundamentals in Python and applying them to computer-vision ideas like the waste-sorting system.</p></div>
+          <div class="it rv" style="--d:1"><span class="when">2026</span><h4>Finalist, Finding the Next Signal</h4><p>ATMOS 2026, BITS Pilani Hyderabad. Built Falsify, an autonomous financial research agent, solo.</p></div>
+          <div class="it rv" style="--d:2"><span class="when">2026</span><h4>Smart India Hackathon</h4><p>Built and presented FarmLink AI.</p></div>
+          <div class="it rv" style="--d:3"><span class="when">Ongoing</span><h4>Learning machine learning</h4><p>Working through ML fundamentals in Python and applying them to computer-vision ideas like the waste-sorting system.</p></div>
         </div>
       </div>
     </div>
@@ -316,7 +357,7 @@ footer { color: var(--muted); font-size: .85rem; padding: 36px 0 44px; text-alig
       <span class="eyebrow" style="justify-content:center">Let's talk</span>
       <h2>Have a problem worth <span class="serif">building</span> for?</h2>
       <p>I'm open to internships, hackathon teams and interesting projects, especially in AI and backend engineering.</p>
-      <p style="font-size:.88rem;margin-top:-.6rem">Off the keyboard, I follow markets: Indian stocks, crypto and mutual funds.</p>
+      <p style="font-size:.88rem;margin-top:-.6rem">Off the keyboard, I follow markets: Indian stocks, crypto and mutual funds, which is where Falsify came from.</p>
       <div class="cta">
         <a class="btn primary" href="mailto:sonitanay23@gmail.com">sonitanay23@gmail.com</a>
         <a class="btn" href="https://github.com/sonitanay23" target="_blank" rel="noopener">GitHub ↗</a>
